@@ -1,0 +1,12 @@
+<* This is a comment *>
+varName: <TMPL_var name="varName"> 
+<TMPL_loop name="aLoop"> 
+This is loop number <TMPL_var name="TMPL_LOOP_ITERATION"> (last one was <TMPL_var name="TMPL_LOOP_PREV_ITERATION"> (next one is <TMPL_var name="TMPL_LOOP_NEXT_ITERATION"> ) )
+Loop has var <TMPL_var name="loopVar"> a pieje nam <TMPL_var name="loopVar2">
+Loops can be nested!
+</TMPL_loop> 
+Sweet name: <TMPL_var name="sweet.name">
+Sweet price: <TMPL_var name="sweet.price">
+<TMPL_if name="sweet.isBig" value="1">
+Sweet is big
+</TMPL_IF>

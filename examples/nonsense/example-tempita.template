@@ -1,0 +1,16 @@
+## This is a comment
+varName: {{varName}}
+{{for loop,v in looper(aLoop)}}
+This is loop number {{loop.index}} (last one was {{loop.index-1}} (next one is {{loop.index+1}} ) )
+Loop has var {{v['loopVar']}} a pieje nam {{v['loopVar2']}}
+Loops can be nested!
+{{endfor}}
+Sweet name: {{sweet['name']}}
+Sweet price: {{sweet['price']}}
+{{if int(sweet['isBig']) > 0}}
+Sweet is big
+{{endif}}
+{{py:import math}}
+{{math.sin(10)}}
+{{missing}}
+{{alsomissing+missing}}

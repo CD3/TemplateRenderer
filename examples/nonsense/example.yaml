@@ -1,0 +1,37 @@
+template_file : "example.template"
+output_file : "example1.txt"
+data :
+ varName : "haha1"
+ aLoop : 
+  -
+   loopVar : "loopVal 1"
+   loopVar2 : "kokoszka"
+  -
+   loopVar : "loopVal 2"
+   loopVar2 : "kogut"
+  -
+   loopVar : "loopVal 2"
+   loopVar2 : "kogut"
+ sweet :
+  name : "Prince Polo"
+  price : "5.50"
+  isBig : "0"
+---
+template_file : "example.template"
+output_file : "example2.txt"
+data :
+ varName : "HAHA1"
+ aLoop : 
+  -
+   loopVar : "loopVal 1"
+   loopVar2 : "kokoszka"
+  -
+   loopVar : "loopVal 2"
+   loopVar2 : "kogut"
+  -
+   loopVar : "loopVal 2"
+   loopVar2 : "kogut"
+ sweet :
+  name : "Prince Polo"
+  price : "5.50"
+  isBig : "100000"

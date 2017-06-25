@@ -1,0 +1,13 @@
+## This is a comment
+<%!
+x = 2
+y = x + 3
+z = x*y
+a = xrange(2,20,1)
+%>
+x = ${x}
+y = ${y}
+z = ${z}
+%for i in a:
+a = ${i}
+%endfor

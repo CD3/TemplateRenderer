@@ -1,0 +1,17 @@
+## This is a comment
+varName: HAHA1
+This is loop number 0 (last one was -1 (next one is 1 ) )
+Loop has var loopVal 1 a pieje nam kokoszka
+Loops can be nested!
+This is loop number 1 (last one was 0 (next one is 2 ) )
+Loop has var loopVal 2 a pieje nam kogut
+Loops can be nested!
+This is loop number 2 (last one was 1 (next one is 3 ) )
+Loop has var loopVal 2 a pieje nam kogut
+Loops can be nested!
+Sweet name: Prince Polo
+Sweet price: 5.50
+Sweet is big
+-0.544021110889
+{{missing}}
+{{alsomissing+missing}}
