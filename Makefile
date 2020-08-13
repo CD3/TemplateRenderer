@@ -1,4 +1,4 @@
-DEST=~/install/bin/
+DEST=~/bin/
 
 install: render.py
 	install $< $(DEST)

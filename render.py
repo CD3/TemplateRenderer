@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python2
 
 
 import os, sys, re
@@ -161,7 +161,7 @@ for templateFile in args.templateFiles:
     if not os.path.isfile( args.contextFile ):
       raise IOError( "file '"+args.contextFile+"' does not exist")
     with open( args.contextFile ) as f:
-      data = yaml.load(f)
+      data = yaml.safe_load(f)
       configs[-1]['data'] = data
 
 
@@ -170,7 +170,7 @@ for configFile in args.configFiles:
   if os.path.isfile( configFile ):
       with open( configFile ) as f:
         # each YAML config file may contain multiple documents
-        configGenerator = yaml.load_all(f)
+        configGenerator = yaml.safe_load_all(f)
         configs += [ config for config in configGenerator ]
   else:
       raise IOError( "file '"+configFile+"' does not exist")
