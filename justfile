@@ -21,3 +21,7 @@ fmt:
 # check the code
 check:
     ruff check .
+
+# run the tests
+test:
+    cram tests
