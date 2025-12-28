@@ -2,3 +2,5 @@
 *.so
 *.o
 build
+.python-version
+Pipfile.lock
