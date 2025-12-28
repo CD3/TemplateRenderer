@@ -9,3 +9,7 @@ build:
 # publish the package
 publish: build
     uv publish
+
+# render the README
+readme:
+    expand-macros README.md.t README.md
