@@ -73,7 +73,7 @@ def main():
     parser.add_argument("-x", "--overwrite",    action="store_true", dest='overwrite', default=False,            help="Overwrite output files.")
     parser.add_argument("-n", "--no-overwrite", action="store_false",dest='overwrite', default=True,             help="Do not overwrite output files.")
     parser.add_argument("-a", "--auto-output",  action="store_true",                   default=False,            help="Automatically name output file.")
-    parser.add_argument("-e", "--engine",       action="store",                        default="mako",           help="The template engine to use.")
+    parser.add_argument("-e", "--engine",       action="store",                        default="jinja",           help="The template engine to use.")
     parser.add_argument("-l", "--list",         action="store_true",                   default=False,            help="List available engines.")
 
     args = parser.parse_args()

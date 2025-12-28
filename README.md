@@ -6,37 +6,41 @@ It is useful for creating simple templates to create configuration files, source
 ## Usage
 
 In its simplest uses `render` takes a template file, renders it using the
-default template engine (mako), and writes the it to stdout.
+default template engine (jinja), and writes the it to stdout.
 
 ```Bash
-> cat example.txt.t
-<%
- lengths = [ 1.1, 1.2, 1.0, 1.2 ]
-%>
+> cat examples/demo-jinja-example.txt.t
+{%
+ set lengths = [ 1.1, 1.2, 1.0, 1.2 ]
+%}
 Measurements:
-% for l in lengths:
-  ${l} cm
-% endfor
+{% for l in lengths %}
+  {{l}} cm
+{% endfor %}
 
-Avg: ${ sum(lengths)/len(lengths) } cm
+Avg: {{ (lengths | sum) / (lengths | length) }} cm
 
-> uv run render example.txt.t
+> render example.txt.t
 
 Measurements:
+
   1.1 cm
+
   1.2 cm
+
   1.0 cm
+
   1.2 cm
+
 
 Avg: 1.125 cm
-
 ```
 
 Several template engines are supported. Use the `-l` option to see a list of all supported
 engines.
 
 ```Bash
-> uv run render -l
+> render -l
     engine available?          
 =========================
  ctemplate no                  
@@ -50,6 +54,33 @@ engines.
 
 If a supported engine is not available, you just need to install it.
 
+### Other Engines
+
+Other engines can be used by specifying the `--engine` option. For example, to use the `mako` engine:
+```Bash
+> cat examples/demo-mako-example.txt.t
+<%
+ lengths = [ 1.1, 1.2, 1.0, 1.2 ]
+%>
+Measurements:
+% for l in lengths:
+  ${l} cm
+% endfor
+
+Avg: ${ sum(lengths)/len(lengths) } cm
+
+> render --engine=mako examples/demo-mako-example.txt.t
+
+Measurements:
+  1.1 cm
+  1.2 cm
+  1.0 cm
+  1.2 cm
+
+Avg: 1.125 cm
+
+```
+
 ### YAML files
 
 All template libraries render a template string using a context. The context is just
@@ -60,10 +91,10 @@ setting variables directly in the template, but others to not.
 the name of the context file to the `--context` option.
 
 ```Bash
-> cat example-2.txt.t
-% for Name in Names:
-Hi! My name is ${Name['First']} ${Name['Last']}.
-% endfor
+> cat examples/demo-jinja-example-2.txt.t
+{% for Name in Names %}
+Hi! My name is {{ Name['First'] }} {{ Name['Last'] }}.
+{% endfor %}
 
 > cat context.yaml
 Names:
@@ -72,8 +103,17 @@ Names:
   - First: Rusty
     Last: Shacklford
 
-> uv run render --context=context.yaml example-2.txt.t
+> render --context=context.yaml example-2.txt.t
+
 Hi! My name is John Doe.
+
 Hi! My name is Rusty Shacklford.
 
 ```
+The output of the command is:
+```
+Hi! My name is John Doe.
+
+Hi! My name is Rusty Shacklford.
+```
+

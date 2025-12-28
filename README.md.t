@@ -6,24 +6,34 @@ It is useful for creating simple templates to create configuration files, source
 ## Usage
 
 In its simplest uses `render` takes a template file, renders it using the
-default template engine (mako), and writes the it to stdout.
+default template engine (jinja), and writes the it to stdout.
 
 ```Bash
-> cat example.txt.t
-\shell{cat examples/demo-example.txt.t}
-> uv run render example.txt.t
-\shell{uv run render examples/demo-example.txt.t}
+> cat examples/demo-jinja-example.txt.t
+\shell{cat examples/demo-jinja-example.txt.t}
+> render example.txt.t
+\shell{uv run render examples/demo-jinja-example.txt.t}
 ```
 
 Several template engines are supported. Use the `-l` option to see a list of all supported
 engines.
 
 ```Bash
-> uv run render -l
+> render -l
 \shell{uv run render -l}
 ```
 
 If a supported engine is not available, you just need to install it.
+
+### Other Engines
+
+Other engines can be used by specifying the `--engine` option. For example, to use the `mako` engine:
+```Bash
+> cat examples/demo-mako-example.txt.t
+\shell{cat examples/demo-mako-example.txt.t}
+> render --engine=mako examples/demo-mako-example.txt.t
+\shell{uv run render --engine=mako examples/demo-mako-example.txt.t}
+```
 
 ### YAML files
 
@@ -35,10 +45,17 @@ setting variables directly in the template, but others to not.
 the name of the context file to the `--context` option.
 
 ```Bash
-> cat example-2.txt.t
-\shell{cat examples/demo-example-2.txt.t}
+> cat examples/demo-jinja-example-2.txt.t
+\shell{cat examples/demo-jinja-example-2.txt.t}
 > cat context.yaml
 \shell{cat examples/demo-context.yaml}
-> uv run render --context=context.yaml example-2.txt.t
-\shell{uv run render --context=examples/demo-context.yaml examples/demo-example-2.txt.t}
+> render --context=context.yaml example-2.txt.t
+\shell{uv run render --context=examples/demo-context.yaml examples/demo-jinja-example-2.txt.t}
 ```
+The output of the command is:
+```
+Hi! My name is John Doe.
+
+Hi! My name is Rusty Shacklford.
+```
+
