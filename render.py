@@ -92,7 +92,7 @@ def renderTemplate(templateFile,data,outputFile):
 
   # check if we are going to overwrite existing file
   if outputFile != '/dev/stdout' and not args.overwrite and os.path.isfile( outputFile ):
-    print "output file '"+outputFile+"' exists, please delete, move, or rerun with --overwrite option"
+    print("output file '"+outputFile+"' exists, please delete, move, or rerun with --overwrite option")
     sys.exit(1)
 
   # render
@@ -133,22 +133,22 @@ def getOutputFile( config ):
 
 if args.list:
   fmt = "{:>10} {:<20}"
-  print fmt.format("engine", "available?")
-  print "="*25
+  print(fmt.format("engine", "available?"))
+  print("="*25)
   for key in loaded:
-    print fmt.format(key, "yes" if loaded[key] else "no" )
+    print(fmt.format(key, "yes" if loaded[key] else "no" ))
   sys.exit(0)
 
 
 
 # check that the engine is supported
 if not args.engine in loaded:
-    print "'"+args.engine + "' engine is not recognized. Did you spell it correctly?"
+    print("'"+args.engine + "' engine is not recognized. Did you spell it correctly?")
     sys.exit(1)
 
 # check that the engine loaded
 if not loaded[args.engine]:
-    print "'"+args.engine + "' engine did not load. Make sure that it is installed and available?"
+    print("'"+args.engine + "' engine did not load. Make sure that it is installed and available?")
     sys.exit(1)
 
 
