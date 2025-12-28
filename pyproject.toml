@@ -13,9 +13,10 @@ dependencies = [
 ]
 
 [project.scripts]
-render = "render_template.render:main"
+render = "render_template.cli:main"
 
 [project.optional-dependencies]
 test = [
     "cram",
+    "pystache",
 ]

@@ -24,4 +24,4 @@ check:
 
 # run the tests
 test:
-    cram tests
+    uv run cram tests
