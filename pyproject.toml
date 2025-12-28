@@ -1,0 +1,11 @@
+[project]
+name = "TemplateRenderer"
+version = "0.1.0"
+dependencies = [
+    "pyyaml",
+    "jinja2",
+    "mako",
+]
+
+[project.scripts]
+render = "TemplateRenderer.render:main"
