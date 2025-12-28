@@ -4,3 +4,6 @@
 build
 .python-version
 Pipfile.lock
+src/render_template/__pycache__
+src/render_template.egg-info
+uv.lock

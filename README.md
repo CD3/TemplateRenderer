@@ -1,6 +1,6 @@
-# TemplateRenderer
+# render-template
 
-`TemplateRenderer` provides a small python script named `render.py` that can render stand-alone template files using several different engines.
+`render-template` provides a small python script named `render.py` that can render stand-alone template files using several different engines.
 It is useful for creating simple templates to create configuration files, source code, READMEs, etc.
 
 ## Usage
