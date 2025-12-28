@@ -4,7 +4,7 @@ list:
 
 # build the distribution
 build:
-    uv dist-build
+    uv build
 
 # publish the package
 publish: build
