@@ -136,8 +136,10 @@ def main():
       fmt = "{:>10} {:<20}"
       print(fmt.format("engine", "available?"))
       print("="*25)
+      default_engine = parser.get_default('engine')
       for key in loaded:
-        print(fmt.format(key, "yes" if loaded[key] else "no" ))
+        is_default = " (default)" if key == default_engine else ""
+        print(fmt.format(key, "yes" if loaded[key] else "no" ) + is_default)
       sys.exit(0)
 
 
